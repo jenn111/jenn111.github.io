@@ -1,16 +1,21 @@
 /* styles.css */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
     background-color: #f4f4f4;
+    line-height: 1.6;
 }
 
 header {
     background-color: #333;
     color: #fff;
     padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 header nav ul {
@@ -28,11 +33,57 @@ header nav ul li {
 header nav ul li a {
     color: #fff;
     text-decoration: none;
+    font-size: 18px;
 }
 
 section {
-    padding: 20px;
+    padding: 60px 20px;
     text-align: center;
+}
+
+.hero {
+    background: url('../images/hero-background.jpg') no-repeat center center/cover;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
 }
 
 footer {
@@ -47,4 +98,20 @@ footer {
 
 h1, h2 {
     margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    header nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .hero {
+        height: auto;
+        padding: 60px 20px;
+    }
+
+    .hero-content {
+        padding: 10px;
+    }
 }
